@@ -1,7 +1,7 @@
-package moip.poc.web;
+package grana.web;
 
 import com.jayway.restassured.RestAssured;
-import moip.poc.ApplicationStart;
+import grana.ApplicationStart;
 import org.apache.http.HttpStatus;
 import org.junit.Before;
 import org.junit.Test;

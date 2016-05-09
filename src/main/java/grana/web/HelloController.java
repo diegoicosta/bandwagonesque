@@ -1,4 +1,4 @@
-package moip.poc.web;
+package grana.web;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
