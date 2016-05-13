@@ -1,2 +1,2 @@
-# spring-boot
+# bandwagonesque
 Uso geral de spring boot
