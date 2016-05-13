@@ -1,5 +1,7 @@
-package grana.entry;
+package grana.entry.web;
 
+import grana.entry.domain.Entry;
+import grana.entry.domain.EntryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -16,18 +18,13 @@ public class EntryController {
     private EntryRepository repository;
 
     @RequestMapping(value = "/entry", method = RequestMethod.POST)
-    public
-    @ResponseBody
-    Entry create(@RequestBody Entry entry) {
-        System.out.println(entry);
+    public @ResponseBody Entry create(@RequestBody Entry entry) {
         Entry newEntry = repository.save(entry);
         return newEntry;
     }
 
     @RequestMapping(value = "/entry/{id}", method = RequestMethod.GET, produces = "application/json")
-    public
-    @ResponseBody
-    Entry findById(@PathVariable("id") long id) {
+    public @ResponseBody Entry findById(@PathVariable("id") long id) {
 
         Entry entry = repository.findOne(id);
         if (entry == null) {
@@ -36,12 +33,6 @@ public class EntryController {
         return entry;
     }
 
-    @RequestMapping(value = "/entry", method = RequestMethod.GET)
-    public
-    @ResponseBody
-    Collection<Entry> findAll() {
-        return repository.findAll();
-    }
 
     @ResponseStatus(HttpStatus.NOT_FOUND)
     class EntryNotFound extends RuntimeException {
@@ -49,5 +40,12 @@ public class EntryController {
             super(message);
         }
     }
+
+    @RequestMapping(value = "/entry", method = RequestMethod.GET)
+    public @ResponseBody Collection<Entry> findAll() {
+        return repository.findAll();
+    }
+
+
 
 }

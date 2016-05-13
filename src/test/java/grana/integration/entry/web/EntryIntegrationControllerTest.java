@@ -1,9 +1,9 @@
-package grana.integration;
+package grana.integration.entry.web;
 
 import com.jayway.restassured.RestAssured;
 import grana.ApplicationStart;
-import grana.entry.Entry;
-import grana.entry.EntryRepository;
+import grana.entry.domain.Entry;
+import grana.entry.domain.EntryRepository;
 import org.apache.http.HttpStatus;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,7 +26,7 @@ import static org.hamcrest.Matchers.hasItems;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = ApplicationStart.class)
 @WebIntegrationTest(randomPort = true)
-public class EntryControllerTest {
+public class EntryIntegrationControllerTest {
 
     @Autowired
     private EmbeddedWebApplicationContext server;

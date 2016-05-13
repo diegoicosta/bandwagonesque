@@ -1,6 +1,8 @@
-package grana.entry;
+package grana.entry.web;
 
 import grana.ApplicationStart;
+import grana.entry.domain.Entry;
+import grana.entry.domain.EntryRepository;
 import org.apache.http.HttpStatus;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,10 +15,8 @@ import org.springframework.web.context.WebApplicationContext;
 
 import java.util.Random;
 
-import static com.jayway.restassured.module.mockmvc.RestAssuredMockMvc.given;
-import static com.jayway.restassured.module.mockmvc.RestAssuredMockMvc.mockMvc;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.hasItems;
+import static com.jayway.restassured.module.mockmvc.RestAssuredMockMvc.*;
+import static org.hamcrest.Matchers.*;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
 /**
@@ -48,7 +48,7 @@ public class EntryControllerTest {
     }
 
     @Test
-    public void findOneList() throws Exception {
+    public void findOneEntry() throws Exception {
         Entry entry = createEntry() ;
 
         given()

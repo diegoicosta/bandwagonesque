@@ -1,4 +1,4 @@
-package grana.entry;
+package grana.entry.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -49,4 +49,5 @@ public class Entry {
                 ", amount=" + amount +
                 '}';
     }
+
 }
